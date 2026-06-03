@@ -1,0 +1,499 @@
+:root {
+  --bg-darkest: #202225;
+  --bg-darker: #2f3136;
+  --bg-dark: #36393f;
+  --bg-light: #40444b;
+  --bg-lighter: #4f545c;
+  --accent: #5865f2;
+  --accent-soft: #3ba55d;
+  --text-main: #ffffff;
+  --text-muted: #b9bbbe;
+  --text-subtle: #72767d;
+  --danger: #ed4245;
+  --scrollbar: #202225;
+  --scrollbar-thumb: #202225;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;
+  font-family: var(--font-main);
+  color: var(--text-main);
+}
+
+body {
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  background: var(--bg-dark);
+}
+
+/* Servers bar */
+
+.servers-bar {
+  width: 72px;
+  background: #202225;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.server {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #36393f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.server-home {
+  background: var(--accent);
+}
+
+.server-add {
+  background: #3ba55d;
+}
+
+.server:hover {
+  border-radius: 16px;
+  background: var(--accent);
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 260px;
+  background: var(--bg-darker);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #202225;
+}
+
+.guild-header {
+  padding: 12px;
+  background: var(--bg-darkest);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.guild-name {
+  font-weight: 600;
+}
+
+.guild-tag {
+  font-size: 11px;
+  color: var(--accent-soft);
+  letter-spacing: 0.08em;
+}
+
+.channels {
+  flex: 1;
+  padding: 8px 8px 8px 12px;
+  overflow-y: auto;
+}
+
+.channel-group {
+  margin-bottom: 12px;
+}
+
+.group-title {
+  font-size: 11px;
+  color: var(--text-subtle);
+  margin-bottom: 4px;
+}
+
+.channel {
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.channel:hover {
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+.channel.active {
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+/* User bar */
+
+.user-bar {
+  padding: 8px;
+  background: var(--bg-darkest);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.avatar.small {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.avatar.tiny {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.user-tag {
+  font-size: 11px;
+  color: var(--text-subtle);
+}
+
+.user-actions button {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.user-actions button:hover {
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+/* Main */
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-dark);
+}
+
+/* Top bar */
+
+.top-bar {
+  height: 48px;
+  background: var(--bg-darkest);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.channel-hash {
+  color: var(--text-subtle);
+}
+
+.channel-name {
+  font-weight: 600;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-icon {
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.top-icon:hover {
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+/* Content */
+
+.content {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* Chat */
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+.system-message {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-subtle);
+  margin-bottom: 8px;
+}
+
+.message {
+  display: flex;
+  gap: 8px;
+}
+
+.message-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.timestamp {
+  font-size: 11px;
+  color: var(--text-subtle);
+}
+
+.message-text {
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.message-attachments {
+  margin-top: 4px;
+}
+
+.gif {
+  max-width: 220px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Members */
+
+.members {
+  width: 240px;
+  background: var(--bg-darker);
+  border-left: 1px solid #202225;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.members-group-title {
+  font-size: 11px;
+  color: var(--text-subtle);
+  margin-bottom: 8px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.member:hover {
+  background: var(--bg-light);
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-name {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.member-status {
+  font-size: 11px;
+  color: var(--text-subtle);
+}
+
+/* Roles */
+
+.role-icon {
+  font-size: 12px;
+}
+
+.role-dev {
+  color: var(--accent-soft);
+}
+
+.role-admin {
+  color: var(--danger);
+}
+
+.role-bot {
+  color: var(--accent);
+}
+
+.role-pill {
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 999px;
+  margin-left: 4px;
+}
+
+.role-pill.role-dev {
+  background: rgba(59, 165, 93, 0.2);
+  color: var(--accent-soft);
+}
+
+.role-pill.role-admin {
+  background: rgba(237, 66, 69, 0.2);
+  color: var(--danger);
+}
+
+/* Message input */
+
+.message-input-bar {
+  height: 56px;
+  padding: 8px 12px;
+  background: var(--bg-darker);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.message-input-bar input {
+  flex: 1;
+  background: var(--bg-darkest);
+  border-radius: var(--radius-lg);
+  border: none;
+  padding: 10px 12px;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.message-input-bar input:focus {
+  outline: 1px solid var(--accent);
+}
+
+.input-icon {
+  background: var(--bg-darkest);
+  border-radius: 50%;
+  border: none;
+  width: 32px;
+  height: 32px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.input-icon:hover {
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+/* Scrollbars */
+
+.chat::-webkit-scrollbar,
+.members::-webkit-scrollbar,
+.channels::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat::-webkit-scrollbar-track,
+.members::-webkit-scrollbar-track,
+.channels::-webkit-scrollbar-track {
+  background: var(--scrollbar);
+}
+
+.chat::-webkit-scrollbar-thumb,
+.members::-webkit-scrollbar-thumb,
+.channels::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .members {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .sidebar {
+    display: none;
+  }
+}
+
