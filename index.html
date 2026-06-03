@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Discord Style Web Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Left: Servers -->
+    <div class="servers-bar">
+      <div class="server server-home">🏠</div>
+      <div class="server" title="Dev Hub">DH</div>
+      <div class="server" title="Gaming">GM</div>
+      <div class="server" title="Music">MS</div>
+      <div class="server" title="Friends">FR</div>
+      <div class="server server-add">+</div>
+    </div>
+
+    <!-- Middle: Channels + User bar -->
+    <div class="sidebar">
+      <div class="guild-header">
+        <div class="guild-name">Dev Hub</div>
+        <div class="guild-tag">#PEKKYDEV</div>
+      </div>
+
+      <div class="channels">
+        <div class="channel-group">
+          <div class="group-title">TEXT CHANNELS</div>
+          <div class="channel active"># general</div>
+          <div class="channel"># updates</div>
+          <div class="channel"># memes</div>
+        </div>
+        <div class="channel-group">
+          <div class="group-title">VOICE CHANNELS</div>
+          <div class="channel">🔊 Lobby</div>
+          <div class="channel">🎮 Ranked</div>
+        </div>
+      </div>
+
+      <div class="user-bar">
+        <div class="user-info">
+          <div class="avatar">A</div>
+          <div class="user-meta">
+            <div class="user-name">
+              Alexander
+              <span class="role-icon role-dev" title="Developer">⚙</span>
+              <span class="role-icon role-admin" title="Admin">🛡</span>
+            </div>
+            <div class="user-tag">alex#0001</div>
+          </div>
+        </div>
+        <div class="user-actions">
+          <button title="Mute">🔇</button>
+          <button title="Deafen">🎧</button>
+          <button title="Settings">⚙️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Chat + Members -->
+    <div class="main">
+      <div class="top-bar">
+        <div class="top-left">
+          <span class="channel-hash">#</span>
+          <span class="channel-name">general</span>
+        </div>
+        <div class="top-right">
+          <span class="top-icon" title="Search">🔍</span>
+          <span class="top-icon" title="Inbox">📥</span>
+          <span class="top-icon" title="Help">❓</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <!-- Chat area -->
+        <div class="chat">
+          <div class="system-message">Welcome to #general! This is a Discord-style mock UI.</div>
+
+          <div class="message">
+            <div class="avatar small">P</div>
+            <div class="message-body">
+              <div class="message-header">
+                <span class="username">
+                  Pekky
+                  <span class="role-pill role-dev">DEV</span>
+                </span>
+                <span class="timestamp">Today at 10:24</span>
+              </div>
+              <div class="message-text">
+                Yo! Check this out 😎🔥
+              </div>
+              <div class="message-attachments">
+                <img
+                  src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Z3d3Z2d2Z2d2Z2d2Z2d2Z2d2Z2Z2Z2Z2Z2/giphy.gif"
+                  alt="GIF"
+                  class="gif"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="message">
+            <div class="avatar small">A</div>
+            <div class="message-body">
+              <div class="message-header">
+                <span class="username">
+                  Alexander
+                  <span class="role-pill role-admin">ADMIN</span>
+                </span>
+                <span class="timestamp">Today at 10:25</span>
+              </div>
+              <div class="message-text">
+                Love it 😂 — also testing emojis: 💻✨🚀
+              </div>
+            </div>
+          </div>
+
+          <!-- Messages appended here by JS -->
+          <div id="messages-end"></div>
+        </div>
+
+        <!-- Members list -->
+        <div class="members">
+          <div class="members-group-title">ONLINE — 3</div>
+
+          <div class="member">
+            <div class="avatar tiny">A</div>
+            <div class="member-info">
+              <div class="member-name">
+                Alexander
+                <span class="role-icon role-admin" title="Admin">🛡</span>
+              </div>
+              <div class="member-status">Coding something cool</div>
+            </div>
+          </div>
+
+          <div class="member">
+            <div class="avatar tiny">P</div>
+            <div class="member-info">
+              <div class="member-name">
+                Pekky
+                <span class="role-icon role-dev" title="Developer">⚙</span>
+              </div>
+              <div class="member-status">Fixing bugs</div>
+            </div>
+          </div>
+
+          <div class="member">
+            <div class="avatar tiny">B</div>
+            <div class="member-info">
+              <div class="member-name">
+                Bot
+                <span class="role-icon role-bot" title="Bot">🤖</span>
+              </div>
+              <div class="member-status">/help</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message input -->
+      <div class="message-input-bar">
+        <button class="input-icon" title="Add file">＋</button>
+        <input
+          id="message-input"
+          type="text"
+          placeholder="Message #general"
+          autocomplete="off"
+        />
+        <button class="input-icon" id="emoji-btn" title="Insert emoji">😊</button>
+        <button class="input-icon" id="gif-btn" title="Insert GIF">GIF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
